@@ -1,30 +1,69 @@
 <script>
 
+import { currentIndex } from './shared.svelte';
+import { tracks } from './shared.svelte';
+
+/* let tracks = [
+    { 'id' : "track_id: 01", 'name' : 'LVM_Bae.wav', 'src' : './public/assets/audio/LVM_Bae.wav' },
+    { 'id' : "track_id: 02", 'name' : 'LVM_Monster.wav', 'src' : './public/assets/audio/LVM_Bae.wav' },
+    { 'id' : "track_id: 03", 'name' : 'LVM_xxxx.wav', 'src' : './public/assets/audio/LVM_Bae.wav' },
+    { 'id' : "track_id: 04", 'name' : 'LVM_xxxx.wav', 'src' : './public/assets/audio/LVM_Bae.wav' },
+    { 'id' : "track_id: 05", 'name' : 'LVM_xxxx.wav', 'src' : './public/assets/audio/LVM_Bae.wav' },
+
+];
+*/
+
+//let currentIndex = $state(0);
+let currentTrack = $derived(tracks[currentIndex.current]);
+let prevTrack = $derived(tracks[(currentIndex.current - 1 + tracks.length) % tracks.length]);
+let nextTrack = $derived(tracks[(currentIndex.current + 1) % tracks.length]);
+//let audio = $derived(new Audio(currentTrack.src));
+
+
+function next(){
+    currentIndex.current += 1;
+
+    if (currentIndex.current >= tracks.length) {
+        currentIndex.current = 0;
+    }
+    console.log(currentIndex.current)
+    //audio.src = tracks[currentIndex].src;
+}
+
+function prev(){
+
+    currentIndex.current -= 1;
+    if (currentIndex.current < 0){
+        currentIndex.current = tracks.length - 1;
+
+    }
+    //audio.src = tracks[currentIndex].src;
+
+}
+
 </script>
 
 <div class="trackSelect">
-    <div class="previousBtn">
+    <div class="previousBtn" on:click={prev}>
 
     </div>
     <div class="tracks">
         <div class="prevTrack inactive">
-            track_id: 01 <br>
-            LVM_Bae.wav
+            {prevTrack.id} <br> {prevTrack.name}
 
         </div>
         <div class="currentTrack active">
-            track_id: 02 <br>
-            LVM_Monster.wav
-
+            <!--track_id: 02 <br>
+            LVM_Monster.wav-->
+            {currentTrack.id} <br> {currentTrack.name}
         </div>
         <div class="nextTrack inactive">
-            track_id: 03 <br>
-            LVM_xxxxx.wav
+            {nextTrack.id} <br> {nextTrack.name}
 
         </div>
 
     </div>
-    <div class="nextBtn">
+    <div class="nextBtn" on:click={next}>
 
     </div>
     
@@ -52,15 +91,18 @@
         flex-direction: column;
         gap: 30px;
         color: #32FF40;
+        width: 75%;
+        text-align: left;
+        margin-left: 10px;
     }
 
     .inactive{
         opacity: 50%;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .active{
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .previousBtn {
@@ -69,6 +111,8 @@
         border-left: 25px solid transparent;
         border-right: 25px solid transparent;
         border-bottom: 50px solid #32FF40;
+        cursor: pointer;
+        transition: transform 0.3s ease;
     }
 
     .nextBtn{
@@ -77,7 +121,13 @@
         border-left: 25px solid transparent;
         border-right: 25px solid transparent;
         border-top:50px solid #32FF40;
+        cursor: pointer;
+        transition: transform 0.3s ease;
     }
+
+    .previousBtn:hover, .nextBtn:hover {
+    transform: scale(1.2);
+}
 
 
 </style>
