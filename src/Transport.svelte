@@ -3,8 +3,8 @@
     import { tracks } from './shared.svelte';
     import { audio } from './shared.svelte';
     import { onMount } from 'svelte';
+    import { playing } from './shared.svelte';
 
-    let playing = false;
 
     // Audio context and analyser setup
     let audioContext;
@@ -47,16 +47,16 @@
     });
 
     function playCurrentTrack() {
-        if (!playing) {
+        if (!playing.value) {
             audio.src = tracks[currentIndex.current].src; 
             audio.play();
             audioContext.resume().then(() => {
-                playing = true;
+                playing.value = true;
                 drawVisualizer(); // Start visualizer when audio plays
             });
-        } else if (playing) {
+        } else if (playing.value) {
             audio.pause();
-            playing = false;
+            playing.value = false;
         }
     }
 
@@ -84,7 +84,7 @@
         }
 
         // Continue updating the visualizer if the audio is playing
-        if (playing) {
+        if (playing.value) {
             requestAnimationFrame(drawVisualizer);
         }
 
@@ -97,7 +97,7 @@
         <canvas bind:this={canvas} class="visualiser"></canvas>
     </div>
     <div class="controls">
-        <div class={playing ? 'stopBtn' : 'playBtn'} on:click={playCurrentTrack}></div>
+        <div class={playing.value ? 'stopBtn' : 'playBtn'} on:click={playCurrentTrack}></div>
     </div>
 </div>
 

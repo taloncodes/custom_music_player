@@ -1,5 +1,7 @@
 <script>
 
+    import { playing } from './shared.svelte';
+
 </script>
 <div class="mainDisplay">
     <div class="filters">
@@ -21,7 +23,7 @@
     </div>
     <div class="turntableFlex">
         <div class="turntable">
-            <div class="record">
+            <div class="record {playing.value ? 'spinning' : ''}">
                 <div class="sticker">
                     <div class="recordInner"></div>
                 </div>
@@ -70,8 +72,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: transform 0.5s ease-in-out;
 
     }
+
+    .record.spinning {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
     .sticker{
         height: 30%;
@@ -82,14 +98,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #32FF40;
+        background-image: url('./public/assets/vinyl_stickers/loviz_sticker.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .sticker.bae{
+        background-image: url('./public/assets/vinyl_stickers/bae_sticker.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
     }
 
     .recordInner{
         height: 15%;
         aspect-ratio: 1;
         border: solid;
-        border: solid #32FF40 ;
         border-radius: 200px;
         display: flex;
         justify-content: center;

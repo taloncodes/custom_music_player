@@ -1,4 +1,5 @@
 
+
 export const currentIndex = $state({'current' : 0});
 
 export const tracks = [
@@ -10,3 +11,7 @@ export const tracks = [
 ];
 
 export let audio = new Audio();
+
+export const playing = $state({ value: false });
+
+
