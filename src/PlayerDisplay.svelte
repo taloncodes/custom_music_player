@@ -21,6 +21,14 @@
             </div>
         </div>
     </div>
+    <div class="icons">
+        <div class="sc icon">
+        </div>
+        <div class="sptfy icon">
+        </div>
+        <div class="dl icon">
+        </div>
+    </div>
     <div class="turntableFlex">
         <div class="turntable">
             <div class="record {playing.value ? 'spinning' : ''}">
@@ -149,6 +157,60 @@
         align-items: center;
     }
 
+    .icons{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 25%;
+        gap: 69px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .icon{
+        color: #32FF40;
+        border: solid #32FF40 2px;
+        height: 75px;
+        aspect-ratio: 1;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+    }
+
+    .sc{
+        background-image: url('./public/assets/icons/sc.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+
+    }
+
+    .dl{
+
+        background-image: url('./public/assets/icons/dl.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+
+    .sptfy{
+        background-image: url('./public/assets/icons/sptfy.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+
     .filterInner{
         color: #32FF40;
         border: solid #32FF40 2px;
@@ -164,7 +226,16 @@
     .filters > .hi,
     .filters > .lo {
     margin-left: 100px;
-}
+    }
+
+    .icons > .sc,
+    .icons > .dl {
+    margin-right: 100px;
+    }
+
+    .icon:hover {
+        transform: scale(1.2);
+    }
 
 
     

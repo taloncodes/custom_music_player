@@ -143,6 +143,7 @@
         width: 0;
         height: 0;
         cursor: pointer;
+        transition: transform 0.3s ease;
     }
 
     .stopBtn {
@@ -150,5 +151,10 @@
         width: 0;
         height: 0;
         cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .playBtn:hover, .stopBtn:hover {
+        transform: scale(1.2);
     }
 </style>
