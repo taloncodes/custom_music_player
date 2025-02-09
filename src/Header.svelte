@@ -9,10 +9,10 @@
 
 <style>
     .header{
-        font-size: 100px;
+        font-size: 80px;
         color: #31FF41;
         text-align: center;
-        height: 120px;
+        height: 100px;
     }
 
 </style>

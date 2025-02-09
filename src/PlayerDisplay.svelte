@@ -2,6 +2,23 @@
 
 </script>
 <div class="mainDisplay">
+    <div class="filters">
+        <div class="hi filter">
+            <div class="filterInner">
+                <p>HI</p>
+            </div>
+        </div>
+        <div class="md filter">
+            <div class="filterInner">
+                <p>MD</p>
+            </div>
+        </div>
+        <div class="lo filter">
+            <div class="filterInner">
+                <p>LO</p>
+            </div>
+        </div>
+    </div>
     <div class="turntableFlex">
         <div class="turntable">
             <div class="record">
@@ -80,6 +97,49 @@
         background-color: #2B2B2B;
 
     }
+
+    .filters{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 25%;
+        gap: 69px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filter{
+    
+        color: #32FF40;
+        border: solid #32FF40 2px;
+        height: 75px;
+        aspect-ratio: 1;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filterInner{
+        color: #32FF40;
+        border: solid #32FF40 2px;
+        height: 80%;
+        aspect-ratio: 1;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .filters > .hi,
+    .filters > .lo {
+    margin-left: 100px;
+}
+
 
     
 </style>
