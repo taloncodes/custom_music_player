@@ -7,6 +7,9 @@
     let lowValue = 0;
     let midValue = 0;
     let highValue = 0;
+    let knobValue = 50;
+
+
 
 </script>
 
@@ -15,27 +18,25 @@
         <div class="hi filter">
             <div class="filter_notch_left"></div>
             <div class="filter_notch_right"></div>
-            <div class="filterInner">
-                <div class="filterValue"></div>
-                <p>HI</p>
-            </div>
+            <div class="knobOuter">
+                <input type="range" class="input-knob" min="0" max="100" step="1" value="50"/>
+                </div>
         </div>
         <div class="md filter">
             <div class="filter_notch_left"></div>
             <div class="filter_notch_right"></div>
-            <div class="filterInner">
-                <div class="filterValue"></div>
-                <p>MD</p>
-            </div>
+            <div class="knobOuter">
+            <input type="range" class="input-knob" min="0" max="100" step="1" value="50"/>
+        </div>
         </div>
         <div class="lo filter">
             <div class="filter_notch_left"></div>
             <div class="filter_notch_right"></div>
-            <div class="filterInner">
-                <div class="filterValue"></div>
-                <p>LO</p>
-            </div>
+            <div class="knobOuter">
+            <input type="range" class="input-knob" min="0" max="100" step="1" value="50"/>
         </div>
+        </div>
+       
     </div>
     <div class="icons">
         <div class="sc icon">
@@ -177,6 +178,7 @@
         height: 75px;
         aspect-ratio: 1;
         border-radius: 100px;
+        padding: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -279,6 +281,23 @@
     .icon:hover {
         transform: scale(1.2);
     }
+
+    .knobOuter{
+        width: fit-content;
+        height: fit-content;
+        border: solid #32FF40 2px;
+        border-radius: 100px;
+        text-align: center;
+    }
+
+    .input-knob:focus {
+    outline: none;
+
+}
+
+
+
+
 
 
     
