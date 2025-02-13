@@ -21,7 +21,8 @@
     .player{
         border: solid 3px #32FF40;
         height: 600px;
-        min-width: 1000px;
+        width: 70%;
+        min-width: 850px;
         border-radius: 15px;
         background-color: #2B2B2B;
         position: relative;

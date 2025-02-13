@@ -4,11 +4,12 @@
     import { audio } from './shared.svelte';
     import { onMount } from 'svelte';
     import { playing } from './shared.svelte';
+    import { analyser } from './shared.svelte';
+    import { audioContext } from './shared.svelte';
 
 
     // Audio context and analyser setup
-    let audioContext;
-    let analyser;
+    
     let canvas;
     let canvasContext;
     let dataArray;
@@ -16,10 +17,10 @@
 
     onMount(() => {
         // Initialize AudioContext
-        audioContext = new AudioContext();
+        
 
         // Create AnalyserNode
-        analyser = audioContext.createAnalyser();
+        
         analyser.fftSize = 1024; // Size of the FFT (Fast Fourier Transform)
         bufferLength = analyser.frequencyBinCount;
 

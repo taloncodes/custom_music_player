@@ -1,22 +1,38 @@
 <script>
+    import { playing } from './shared.svelte'; 
+    import { audio } from './shared.svelte.js';
+    import { analyser, audioContext } from './shared.svelte';
+    import { onMount } from 'svelte';
 
-    import { playing } from './shared.svelte';
+    let lowValue = 0;
+    let midValue = 0;
+    let highValue = 0;
 
 </script>
+
 <div class="mainDisplay">
     <div class="filters">
         <div class="hi filter">
+            <div class="filter_notch_left"></div>
+            <div class="filter_notch_right"></div>
             <div class="filterInner">
+                <div class="filterValue"></div>
                 <p>HI</p>
             </div>
         </div>
         <div class="md filter">
+            <div class="filter_notch_left"></div>
+            <div class="filter_notch_right"></div>
             <div class="filterInner">
+                <div class="filterValue"></div>
                 <p>MD</p>
             </div>
         </div>
         <div class="lo filter">
+            <div class="filter_notch_left"></div>
+            <div class="filter_notch_right"></div>
             <div class="filterInner">
+                <div class="filterValue"></div>
                 <p>LO</p>
             </div>
         </div>
@@ -68,6 +84,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .filterValue{
+        position: absolute;
+        top: -7px;
+        height: 15px;
+        width: 3px;
+        background-color: #32FF40;
+
     }
 
     .record{
@@ -155,6 +180,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
     .icons{
@@ -169,6 +195,22 @@
         justify-content: center;
         align-items: center;
 
+    }
+
+    .filter_notch_left{
+        height: 2px;
+        width: 7px;
+        background: #32FF40;
+        left: 0;
+        position: absolute;
+    }
+
+    .filter_notch_right{
+        height: 2px;
+        width: 7px;
+        background: #32FF40;
+        right: 0;
+        position: absolute;
     }
 
     .icon{
@@ -222,6 +264,7 @@
         align-items: center;
 
     }
+
 
     .filters > .hi,
     .filters > .lo {

@@ -14,4 +14,6 @@ export let audio = new Audio();
 
 export const playing = $state({ value: false });
 
+export let audioContext = new AudioContext();
+export let analyser = audioContext.createAnalyser();
 
