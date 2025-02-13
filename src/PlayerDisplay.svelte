@@ -295,6 +295,14 @@
 
 }
 
+    .input-knob{
+        cursor: pointer;
+    }
+
+    .knobOuter:active {
+    border: 2px solid red;
+}
+
 
 
 
