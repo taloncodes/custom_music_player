@@ -5,36 +5,15 @@
     import { onMount } from 'svelte';
     import { playing } from './shared.svelte';
     import { analyser } from './shared.svelte';
-    import { audioContext } from './shared.svelte';
+    import { audioContext, dataArray, bufferLength } from './shared.svelte';
 
 
     // Audio context and analyser setup
     
     let canvas;
     let canvasContext;
-    let dataArray;
-    let bufferLength;
 
     onMount(() => {
-        // Initialize AudioContext
-        
-
-        // Create AnalyserNode
-        
-        analyser.fftSize = 1024; // Size of the FFT (Fast Fourier Transform)
-        bufferLength = analyser.frequencyBinCount;
-
-        // Set minimum and maximum decibels for less sensitivity
-        analyser.minDecibels = -100;  // Make it less reactive to quieter frequencies
-        analyser.maxDecibels = -20;  // Maximum decibel level
-
-        // Array to store frequency data
-        dataArray = new Uint8Array(bufferLength);
-
-        // Set up the audio source
-        let source = audioContext.createMediaElementSource(audio);
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
 
         // Set up the canvas context for visualizer
         canvasContext = canvas.getContext('2d');

@@ -1,50 +1,53 @@
 <script>
-    import { playing } from './shared.svelte'; 
-    import { audio } from './shared.svelte.js';
-    import { analyser, audioContext } from './shared.svelte';
+    import { lowPass, highPass, playing, audioContext } from './shared.svelte'; // Import filterNode from shared.svelte
     import { onMount } from 'svelte';
+    
 
-    let lowValue = 0;
-    let midValue = 0;
-    let highValue = 0;
-    let knobValue = 50;
+    let lowKnobValue = 5000; // Default knob value
+    let highKnobValue = 0;
+    let minFrequency = 100;
+    let maxFrequency = 10000;
 
+    // Map the knob value to the frequency range
+    $: lowPass.frequency.value = minFrequency + (maxFrequency - minFrequency) * (lowKnobValue / 100);
+    $: highPass.frequency.value = minFrequency + (maxFrequency - minFrequency) * (highKnobValue / 100);
 
 
 </script>
 
 <div class="mainDisplay">
     <div class="filters">
-        <div class="hi filter">
+        <div class="filter">
             <div class="filter_notch_left"></div>
             <div class="filter_notch_right"></div>
             <div class="knobOuter">
-                <input type="range" class="input-knob" min="0" max="100" step="1" value="50"/>
-                </div>
+                <input 
+                    type="range" 
+                    class="input-knob" 
+                    min="0" 
+                    max="100" 
+                    step="1" 
+                    bind:value={lowKnobValue}/>
+            </div>
         </div>
-        <div class="md filter">
+        <div class="filter">
             <div class="filter_notch_left"></div>
             <div class="filter_notch_right"></div>
             <div class="knobOuter">
-            <input type="range" class="input-knob" min="0" max="100" step="1" value="50"/>
+                <input 
+                    type="range" 
+                    class="input-knob" 
+                    min="0" 
+                    max="100" 
+                    step="1" 
+                    bind:value={highKnobValue}/>
+            </div>
         </div>
-        </div>
-        <div class="lo filter">
-            <div class="filter_notch_left"></div>
-            <div class="filter_notch_right"></div>
-            <div class="knobOuter">
-            <input type="range" class="input-knob" min="0" max="100" step="1" value="50"/>
-        </div>
-        </div>
-       
     </div>
     <div class="icons">
-        <div class="sc icon">
-        </div>
-        <div class="sptfy icon">
-        </div>
-        <div class="dl icon">
-        </div>
+        <div class="sc icon"></div>
+        <div class="sptfy icon"></div>
+        <div class="dl icon"></div>
     </div>
     <div class="turntableFlex">
         <div class="turntable">
@@ -54,10 +57,7 @@
                 </div>
             </div>
         </div>
-       
-
     </div>
-
 </div>
 <style>
 
