@@ -21,7 +21,7 @@ export let bufferLength;
 
 // Create AnalyserNode
         
-analyser.fftSize = 1024; // Size of the FFT (Fast Fourier Transform)
+analyser.fftSize = 256; // Size of the FFT (Fast Fourier Transform)
 bufferLength = analyser.frequencyBinCount;
 
 // Set minimum and maximum decibels for less sensitivity

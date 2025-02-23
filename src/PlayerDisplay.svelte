@@ -229,6 +229,10 @@
 
     }
 
+    .filter:hover, .filter:active {
+        transform: scale(1.2);
+    }
+
     .sc{
         background-image: url('./public/assets/icons/sc.png');
         background-position: center;
@@ -322,15 +326,6 @@
 
     }
 
-    .filter_notch_left{
-        width: 5px;
-        left: -6px;
-    }
-
-    .filter_notch_right{
-        width: 5px;
-        right: -6px;
-    }
 
     .turntableFlex{
         height: 80%;
@@ -341,9 +336,13 @@
     }
 
     .filter{
-        height: 50px;
-        width: 50px;
 
+        transform: scale(0.8);
+    }
+
+    .filter:hover, .filter:active{
+
+        transform: scale(1);
     }
 }
 

@@ -1,7 +1,8 @@
 <script>
 
-import { currentIndex } from './shared.svelte';
+import { currentIndex, playing } from './shared.svelte';
 import { tracks } from './shared.svelte';
+import { audio } from './shared.svelte';
 
 /* let tracks = [
     { 'id' : "track_id: 01", 'name' : 'LVM_Bae.wav', 'src' : './public/assets/audio/LVM_Bae.wav' },
@@ -26,8 +27,13 @@ function next(){
     if (currentIndex.current >= tracks.length) {
         currentIndex.current = 0;
     }
-    console.log(currentIndex.current)
+
+    if (playing.value){
+        audio.src = tracks[currentIndex.current].src;
+        audio.play();
+    }
     //audio.src = tracks[currentIndex].src;
+
 }
 
 function prev(){
@@ -35,7 +41,11 @@ function prev(){
     currentIndex.current -= 1;
     if (currentIndex.current < 0){
         currentIndex.current = tracks.length - 1;
+    }
 
+    if (playing.value){
+        audio.src = tracks[currentIndex.current].src;
+        audio.play();
     }
     //audio.src = tracks[currentIndex].src;
 
