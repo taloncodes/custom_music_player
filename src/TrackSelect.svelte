@@ -86,6 +86,54 @@ function prev(){
 
     }
 
+    @media (max-width: 874px) {
+        .trackSelect{
+            flex-direction: row;
+            width: 100%;
+            height: 15%;
+            border: none;
+        }
+        .prevTrack{
+            display: none;
+            width: fit-content;
+        }
+
+        .currentTrack{
+            width: fit-content;
+        }
+        
+        .tracks{
+            flex-direction: row !important;
+            justify-content: space-around;
+            width: fit-content;
+            width: 50% !important;
+            text-align: center;
+            gap: 0;
+            margin-left: 0 !important;
+            
+        }
+
+        .nextTrack{
+            display: none;
+            
+        }
+
+        .previousBtn {
+        
+        border-top: 25px solid transparent !important;
+        border-bottom: 25px solid transparent !important;
+        border-right: 50px solid #32FF40 !important;
+        
+        }
+
+        .nextBtn{
+        border-top: 25px solid transparent !important;
+        border-bottom: 25px solid transparent !important;
+        border-left: 50px solid #32FF40 !important;
+        }
+
+    }
+
     .tracks{
         display: flex;
         flex-direction: column;

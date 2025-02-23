@@ -16,12 +16,21 @@
 </main>
 
 <style>
+  
   .custom-hr {
   border: none;
   height: 5px;
   background-color: #32FF40;
   margin: 20px 0;
 }
+
+@media (max-width: 874px){
+  
+        .custom-hr{
+            margin: 0;
+        }
+      }
+
 
   
   

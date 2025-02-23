@@ -21,9 +21,9 @@
         // Set canvas resolution to match device pixel ratio (for crispness)
         let ratio = window.devicePixelRatio || 1;
         canvas.width = canvas.offsetWidth * ratio;
-        canvas.height = canvas.offsetHeight * ratio;
+        //canvas.height = canvas.offsetHeight * ratio;
         canvas.style.width = `${canvas.offsetWidth}px`;
-        canvas.style.height = `${canvas.offsetHeight}px`;
+        //canvas.style.height = `${canvas.offsetHeight}px`;
     });
 
     function playCurrentTrack() {
@@ -77,7 +77,20 @@
         <canvas bind:this={canvas} class="visualiser"></canvas>
     </div>
     <div class="controls">
-        <div class={playing.value ? 'stopBtn' : 'playBtn'} on:click={playCurrentTrack}></div>
+        <div class={playing.value ? 'stopBtn' : 'playBtn'} on:click={playCurrentTrack}>
+
+            {#if !playing.value}
+            <p class="playBtnText">PLAY</p>
+            {/if}
+
+            {#if playing.value}
+            <p class="stopBtnText">STOP</p>
+            {/if}
+            
+            
+            
+
+        </div>
     </div>
 </div>
 
@@ -126,6 +139,14 @@
         transition: transform 0.3s ease;
     }
 
+    .playBtnText{
+        display: none;
+    }
+
+    .stopBtnText{
+        display: none;
+    }
+
     .stopBtn {
         border: 25px solid red;
         width: 0;
@@ -137,4 +158,78 @@
     .playBtn:hover, .stopBtn:hover {
         transform: scale(1.2);
     }
+
+    @media (max-width: 874px) {
+        .transport{
+            top: 65%;
+            height: 35%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border: none;
+     
+        }
+
+        .controls{
+            height: 30% !important;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .visualiser_container{
+            width: 100%;
+            height: calc(70% - 20px) !important;
+            bottom: 0;
+        }
+
+        .visualiser{
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .playBtn {
+        border: 2px solid #32FF40 !important;
+        width: 20%;
+        max-width: 120px;
+        min-width: 90px;
+        height: 50%;
+        min-height: 40px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .stopBtn {
+        border: 2px solid red !important;
+        width: 20%;
+        max-width: 120px;
+        height: 50%;
+        min-height: 40px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .playBtnText{
+        display: contents;
+        color: #32FF40;
+
+    }
+
+    .stopBtnText{
+        display: contents;
+        color: red;
+    }
+
+
+
+    
+}
 </style>

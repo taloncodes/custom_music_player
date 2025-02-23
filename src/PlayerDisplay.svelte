@@ -303,6 +303,50 @@
     border: 2px solid red;
 }
 
+@media (max-width: 874px) {
+    .mainDisplay{
+        width: 100%;
+        height: 50%;
+        top: 15%;
+    }
+
+    .icons{display: none;}
+
+    .filters{
+
+        flex-direction: row;
+        top: 80%;
+        width: 100%;
+        height: 20%;
+        gap: 35%;
+
+    }
+
+    .filter_notch_left{
+        width: 5px;
+        left: -6px;
+    }
+
+    .filter_notch_right{
+        width: 5px;
+        right: -6px;
+    }
+
+    .turntableFlex{
+        height: 80%;
+    }
+
+    .turntable{
+        height: 95%;
+    }
+
+    .filter{
+        height: 50px;
+        width: 50px;
+
+    }
+}
+
 
 
 

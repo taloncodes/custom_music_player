@@ -15,4 +15,13 @@
         height: 100px;
     }
 
+    @media (max-width: 874px) {
+        .header{
+            font-size: 60px;
+            height: fit-content;
+        }
+    }
+
+
+
 </style>
