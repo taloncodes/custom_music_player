@@ -30,7 +30,7 @@
 
     @media (max-width: 874px) {
         .player{
-            height: calc(100vh - 77px);
+            min-height: calc(100vh - 77px);
             min-width: 100%;
             border: none;
         }
