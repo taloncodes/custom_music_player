@@ -252,7 +252,7 @@
     }
 
     .sptfy{
-        background-image: url('assets/icons/sptfy.png');
+        background-image: url('/assets/icons/sptfy.png');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
