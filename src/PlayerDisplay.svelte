@@ -132,14 +132,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url('./public/assets/vinyl_stickers/loviz_sticker.jpg');
+        background-image: url('/assets/vinyl_stickers/loviz_sticker.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
 
     .sticker.bae{
-        background-image: url('./public/assets/vinyl_stickers/bae_sticker.jpg');
+        background-image: url('/assets/vinyl_stickers/bae_sticker.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -234,7 +234,7 @@
     }
 
     .sc{
-        background-image: url('./public/assets/icons/sc.png');
+        background-image: url('/assets/icons/sc.png');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -244,7 +244,7 @@
 
     .dl{
 
-        background-image: url('./public/assets/icons/dl.png');
+        background-image: url('/assets/icons/dl.png');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -252,7 +252,7 @@
     }
 
     .sptfy{
-        background-image: url('./public/assets/icons/sptfy.png');
+        background-image: url('assets/icons/sptfy.png');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
