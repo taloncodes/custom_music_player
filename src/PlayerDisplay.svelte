@@ -77,6 +77,7 @@
     }
 
     .turntable{
+        max-height: 80%;
         height: 80%;
         aspect-ratio: 1;
         border: solid;
@@ -332,6 +333,7 @@
     }
 
     .turntable{
+        max-height: 95%;
         height: 95%;
     }
 
