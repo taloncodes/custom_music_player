@@ -32,6 +32,7 @@
         .player{
             min-width: 100%;
             border: none;
+            height: calc(100vh - 77px);
         }
 
     }
