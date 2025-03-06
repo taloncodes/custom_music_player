@@ -30,14 +30,8 @@
 
     @media (max-width: 874px) {
         .player{
-            min-height: calc(100vh - 77px);
             min-width: 100%;
             border: none;
-        }
-
-        .flex_container{
-            max-height: calc(100vh - 77px) !important;
-            min-height: none;
         }
 
     }
